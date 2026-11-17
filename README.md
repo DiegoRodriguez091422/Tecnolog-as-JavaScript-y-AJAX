@@ -29,6 +29,6 @@ El resultado se guarda en `dist/`. Puedes abrir `dist/index.html` directamente p
 
 ## Publicación
 
-El proyecto está configurado para GitHub Pages en `https://diegoroo.github.io/laboratorio-js-ajax/`. El archivo `.github/workflows/deploy.yml` compila y publica el sitio cuando se suben cambios a la rama `main`. En la configuración del repositorio, selecciona **Settings → Pages → Build and deployment → GitHub Actions**.
+El proyecto está configurado para GitHub Pages en `https://diegorodriguez091422.github.io/Tecnolog-as-JavaScript-y-AJAX/`. El archivo `.github/workflows/deploy.yml` compila y publica el sitio cuando se suben cambios a la rama `main`. En la configuración del repositorio, selecciona **Settings → Pages → Build and deployment → GitHub Actions**.
 
 Si se cambia el nombre del repositorio, actualiza `base` en `astro.config.mjs` para que coincida.
