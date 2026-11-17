@@ -1,0 +1,104 @@
+---
+import Layout from '@layouts/Layout.astro';
+---
+
+<Layout title="Laboratorio · JavaScript y AJAX">
+<header class="site-header">
+    <a class="brand" href="#inicio"><span class="brand-mark">JS</span><span>Laboratorio <small>JavaScript + AJAX</small></span></a>
+    <nav aria-label="Secciones"><a href="#javascript">JavaScript</a><a href="#ajax">AJAX</a></nav>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <p class="eyebrow">PRÁCTICA · TECNOLOGÍAS WEB</p>
+      <h1>JavaScript <em>y</em> AJAX</h1>
+      <p>Cuatro ejercicios para trabajar cadenas y números, y una demostración para consultar una URL mediante una petición HTTP asíncrona.</p>
+      <a class="button primary" href="#javascript">Empezar ejercicios <span aria-hidden="true">↓</span></a>
+    </section>
+
+    <section class="overview section" aria-labelledby="overviewTitle">
+      <div class="section-heading"><div><p class="eyebrow">UNA PRÁCTICA EN DOS PARTES</p><h2 id="overviewTitle">De la lógica a la respuesta</h2></div><p>La página reúne ejercicios de programación y una consulta web para observar cómo responde un servidor.</p></div>
+      <div class="overview-grid">
+        <article class="overview-item"><span class="overview-icon icon-blue">01</span><div><h3>Analizar información</h3><p>JavaScript recorre palabras y frases para buscar patrones, extraer vocales y calcular frecuencias.</p></div></article>
+        <article class="overview-item"><span class="overview-icon icon-green">02</span><div><h3>Tomar decisiones</h3><p>Las condiciones permiten comparar números y comunicar un resultado claro, también cuando son iguales.</p></div></article>
+        <article class="overview-item"><span class="overview-icon icon-coral">03</span><div><h3>Consultar un servidor</h3><p>AJAX solicita una URL sin recargar la página y presenta el contenido, las cabeceras y el estado HTTP.</p></div></article>
+      </div>
+    </section>
+
+    <section class="section" id="javascript">
+      <div class="section-heading"><div><p class="eyebrow">01 — 04 · LÓGICA EN EL NAVEGADOR</p><h2>Ejercicios JavaScript</h2></div><p>Escribe un dato y ejecuta cada ejercicio.</p></div>
+      <div class="exercise-grid">
+        <article class="card">
+          <span class="number">01</span><h3>¿Es un palíndromo?</h3>
+          <p>Compara la frase de izquierda a derecha y al revés, ignorando espacios, signos, mayúsculas y tildes.</p>
+          <form data-exercise="palindrome"><label for="phraseInput">Palabra o frase</label><input id="phraseInput" type="text" placeholder="Anita lava la tina" required><button class="button" type="submit">Comprobar</button></form>
+          <output class="result" id="palindromeResult" aria-live="polite">El resultado aparecerá aquí.</output>
+          <div class="learning-note"><b>Idea aplicada</b><p>Se normaliza el texto y se compara con su versión invertida. Así, «Anita lava la tina» puede reconocerse aunque tenga espacios.</p></div>
+        </article>
+        <article class="card">
+          <span class="number">02</span><h3>¿Cuál número es mayor?</h3>
+          <p>Introduce dos números para compararlos.</p>
+          <form data-exercise="greater"><div class="two-inputs"><label>Primer número<input id="numberOne" type="number" step="any" required></label><label>Segundo número<input id="numberTwo" type="number" step="any" required></label></div><button class="button" type="submit">Comparar</button></form>
+          <output class="result" id="greaterResult" aria-live="polite">El resultado aparecerá aquí.</output>
+          <div class="learning-note"><b>Idea aplicada</b><p>Una comparación condicional distingue el mayor y contempla el caso en que ambos valores coinciden.</p></div>
+        </article>
+        <article class="card">
+          <span class="number">03</span><h3>Vocales de una frase</h3>
+          <p>Extrae las vocales en el orden en que aparecen.</p>
+          <form data-exercise="vowels"><label for="vowelsInput">Frase</label><input id="vowelsInput" type="text" placeholder="Escribe una frase" required><button class="button" type="submit">Mostrar vocales</button></form>
+          <output class="result" id="vowelsResult" aria-live="polite">El resultado aparecerá aquí.</output>
+          <div class="learning-note"><b>Idea aplicada</b><p>Se recorre cada carácter en orden y se conservan solo las vocales encontradas, incluidas las vocales acentuadas.</p></div>
+        </article>
+        <article class="card">
+          <span class="number">04</span><h3>Frecuencia de vocales</h3>
+          <p>Cuenta cuántas veces aparece cada vocal, incluidas las vocales con tilde.</p>
+          <form data-exercise="count"><label for="countInput">Frase</label><input id="countInput" type="text" placeholder="Escribe una frase" required><button class="button" type="submit">Contar vocales</button></form>
+          <output class="result" id="countResult" aria-live="polite">El resultado aparecerá aquí.</output>
+          <div class="learning-note"><b>Idea aplicada</b><p>Se inicia un contador por vocal y se acumula una aparición cada vez que se encuentra una coincidencia.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="method-section section" aria-labelledby="methodTitle">
+      <div class="method-intro"><p class="eyebrow">CÓMO SE ORGANIZA EL CÓDIGO</p><h2 id="methodTitle">Entrada, proceso y resultado</h2><p>Cada ejercicio sigue el mismo recorrido: recibe el dato desde un campo, aplica una operación de JavaScript y actualiza la salida correspondiente en la página.</p></div>
+      <div class="method-flow"><article><span>01</span><h3>Leer</h3><p>El formulario recoge el texto o los números introducidos.</p></article><i aria-hidden="true">→</i><article><span>02</span><h3>Procesar</h3><p>La lógica normaliza, recorre, cuenta o compara los datos.</p></article><i aria-hidden="true">→</i><article><span>03</span><h3>Mostrar</h3><p>El resultado se actualiza en el documento sin recargarlo.</p></article></div>
+    </section>
+
+    <section class="section ajax-section" id="ajax">
+      <div class="section-heading"><div><p class="eyebrow">05 · PETICIÓN ASÍNCRONA</p><h2>Consulta una URL</h2></div><p>La solicitud se realiza con XMLHttpRequest y no recarga esta página.</p></div>
+      <div class="ajax-card">
+        <form id="requestForm">
+          <label for="urlInput">URL que quieres consultar</label>
+          <div class="url-row"><input id="urlInput" type="url" required aria-describedby="urlHelp"><button class="button primary" type="submit">Mostrar contenidos</button></div>
+          <p class="hint" id="urlHelp">Por seguridad del navegador, algunas páginas externas bloquean las peticiones desde otros sitios (CORS).</p>
+        </form>
+        <div class="status-line"><span class="status-dot" id="statusDot"></span><div><b>Estado de la petición</b><p id="requestState" aria-live="polite">No iniciada (readyState 0).</p></div></div>
+        <div class="response-grid">
+          <section class="response-box"><h3>Contenidos</h3><pre id="responseContent" aria-live="polite">La respuesta aparecerá aquí.</pre></section>
+          <section class="response-box"><h3>Cabeceras HTTP</h3><pre id="responseHeaders">Las cabeceras aparecerán aquí.</pre></section>
+          <section class="response-box status-box"><h3>Código de estado</h3><pre id="responseStatus">Todavía no hay respuesta.</pre></section>
+        </div>
+      </div>
+      <div class="ajax-explainer">
+        <div class="explainer-heading"><p class="eyebrow">QUÉ OBSERVAR</p><h3>La petición ocurre paso a paso</h3><p>El indicador cambia mientras el navegador establece la conexión, recibe las cabeceras y lee el cuerpo de la respuesta.</p></div>
+        <ol class="state-list">
+          <li><span>0</span><div><b>No iniciada</b><p>Aún no se ha abierto una solicitud.</p></div></li>
+          <li><span>1</span><div><b>Conexión abierta</b><p>La solicitud está preparada para enviarse.</p></div></li>
+          <li><span>2</span><div><b>Cabeceras recibidas</b><p>El servidor respondió con el estado y los metadatos HTTP.</p></div></li>
+          <li><span>3</span><div><b>Cargando contenido</b><p>El cuerpo de la respuesta está llegando.</p></div></li>
+          <li><span>4</span><div><b>Completada</b><p>La respuesta terminó de recibirse y puede mostrarse.</p></div></li>
+        </ol>
+      </div>
+      <div class="reading-guide">
+        <article><span class="guide-icon">A</span><div><h3>Contenido recibido</h3><p>Muestra el cuerpo devuelto por la URL. Se presenta como texto para que el navegador no lo interprete como una página incrustada.</p></div></article>
+        <article><span class="guide-icon">B</span><div><h3>Cabeceras HTTP</h3><p>Incluye metadatos disponibles, como el tipo de contenido, la fecha de respuesta o las reglas de caché.</p></div></article>
+        <article><span class="guide-icon">C</span><div><h3>Código de estado</h3><p>El código y su texto resumen el resultado HTTP: por ejemplo, una respuesta correcta o un recurso no encontrado.</p></div></article>
+      </div>
+      <p class="note"><strong>Nota de compatibilidad:</strong> otros dominios pueden bloquear la lectura por CORS; prueba primero con esta misma página.</p>
+    </section>
+  </main>
+
+  <footer><span>Laboratorio de tecnologías JavaScript y AJAX</span><a href="#inicio">Volver arriba ↑</a></footer>
+</Layout>
+
+<script src="../scripts/lab.js"></script>

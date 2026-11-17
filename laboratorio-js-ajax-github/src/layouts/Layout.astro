@@ -1,0 +1,19 @@
+---
+import "@styles/global.css";
+interface Props { title: string }
+const { title } = Astro.props;
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Práctica interactiva de JavaScript y AJAX: palíndromos, números, vocales y peticiones HTTP." />
+    <meta name="theme-color" content="#315edb" />
+    <link rel="icon" type="image/svg+xml" href={import.meta.env.BASE_URL + (import.meta.env.BASE_URL.endsWith('/') ? '' : '/') + 'favicon.svg'} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
